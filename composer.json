@@ -9,6 +9,17 @@
             "email": "thiagobrauer@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
-    "require": {}
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "ThiagoBrauer\\MultiAuthPasswordReset\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "ThiagoBrauer\\MultiAuthPasswordReset\\PasswordResetServiceProvider"
+            ]
+        }
+    }
 }
