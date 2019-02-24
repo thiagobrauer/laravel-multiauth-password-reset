@@ -3,7 +3,6 @@
 namespace ThiagoBrauer\MultiAuthPasswordReset;
 
 use Illuminate\Support\ServiceProvider;
-use ThiagoBrauer\MultiAuthPasswordReset\Auth\Passwords\PasswordBrokerManager;
 
 class PasswordResetServiceProvider extends ServiceProvider
 {

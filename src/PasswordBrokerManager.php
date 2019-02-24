@@ -1,12 +1,11 @@
 <?php
 
-namespace ThiagoBrauer\MultiAuthPasswordReset\Auth\Passwords;
+namespace ThiagoBrauer\MultiAuthPasswordReset;
 
 use Illuminate\Support\Str;
 use InvalidArgumentException;
 use Illuminate\Contracts\Auth\PasswordBrokerFactory as FactoryContract;
 use Illuminate\Auth\Passwords\PasswordBrokerManager as LaravelPasswordBrokerManager;
-use ThiagoBrauer\MultiAuthPasswordReset\Auth\Passwords\DatabaseTokenRepository;
 
 class PasswordBrokerManager extends LaravelPasswordBrokerManager
 {

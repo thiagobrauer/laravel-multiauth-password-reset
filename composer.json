@@ -1,6 +1,6 @@
 {
     "name": "thiagobrauer/laravel-multiauth-password-reset",
-    "description": "Add support to reset passwords when using multiple tables (and diffrent types of usernames) to authenticate in yout Laravel application",
+    "description": "Add support to reset passwords when using multiple tables (and diffrent types of usernames) to authenticate in your Laravel application",
     "type": "library",
     "license": "MIT",
     "authors": [

@@ -1,6 +1,6 @@
 <?php
 
-namespace ThiagoBrauer\MultiAuthPasswordReset\Auth\Passwords;
+namespace ThiagoBrauer\MultiAuthPasswordReset;
 
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Auth\Passwords\DatabaseTokenRepository as LaravelDatabaseTokenRepository;
@@ -16,8 +16,8 @@ class DatabaseTokenRepository extends LaravelDatabaseTokenRepository
      */
     public function create(CanResetPasswordContract $user)
     {
-        $keyName = $user->getKeyNameForPasswordReset();
-        $keyValue = $user->getKeyForPasswordReset();
+        $keyName = isset($user->keyName) ? $user->keyName : 'email';
+        $keyValue = $user->{$keyName};
 
         $this->deleteExisting($user);
 
@@ -43,8 +43,8 @@ class DatabaseTokenRepository extends LaravelDatabaseTokenRepository
      */
     protected function deleteExisting(CanResetPasswordContract $user)
     {
-        $keyName = $user->getKeyNameForPasswordReset();
-        $keyValue = $user->getKeyForPasswordReset();
+        $keyName = isset($user->keyName) ? $user->keyName : 'email';
+        $keyValue = $user->{$keyName};
 
         return $this->getTable()->where($keyName, $keyValue)->delete();
     }
@@ -58,8 +58,8 @@ class DatabaseTokenRepository extends LaravelDatabaseTokenRepository
      */
     public function exists(CanResetPasswordContract $user, $token)
     {
-        $keyName = $user->getKeyNameForPasswordReset();
-        $keyValue = $user->getKeyForPasswordReset();
+        $keyName = isset($user->keyName) ? $user->keyName : 'email';
+        $keyValue = $user->{$keyName};
     
         $record = (array) $this->getTable()->where(
             $keyName, $keyValue
