@@ -1,5 +1,7 @@
 # laravel-multiauth-password-reset
 
+Add support to reset passwords when using multiple tables (and diffrent types of usernames) to authenticate in your Laravel application
+
 ## Installation
 
 ```bash
